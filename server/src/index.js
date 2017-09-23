@@ -24,7 +24,7 @@ process.on("unhandledRejection", (reason, p) =>
 server.on("listening", () =>
   logger.info(
     "Feathers application started on http://%s:%d",
-    app.get("host"),
+    feathersApi.get("host"),
     port
   )
 );
