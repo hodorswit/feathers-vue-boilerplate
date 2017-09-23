@@ -4,9 +4,7 @@
   "version": "0.0.0",
   "homepage": "",
   "main": "src",
-  "keywords": [
-    "feathers"
-  ],
+  "keywords": ["feathers"],
   "author": {
     "name": "Robbie Hickey",
     "email": "robbie.d.hickey@gmail.com"
@@ -24,7 +22,7 @@
   "scripts": {
     "test": "npm run eslint && npm run mocha",
     "eslint": "eslint src/. test/. --config .eslintrc.json",
-    "start": "node src/",
+    "start": "nodemon src/",
     "mocha": "mocha test/ --recursive"
   },
   "dependencies": {
@@ -40,6 +38,7 @@
     "feathers-rest": "^1.8.0",
     "helmet": "^3.8.1",
     "nedb": "^1.8.0",
+    "nodemon": "^1.12.1",
     "serve-favicon": "^2.4.4",
     "winston": "^2.3.1"
   },
