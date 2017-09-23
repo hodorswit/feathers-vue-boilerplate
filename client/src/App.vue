@@ -24,7 +24,7 @@
     </v-navigation-drawer>
     <v-toolbar class="indigo" dark fixed>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title>Toolbar</v-toolbar-title>
+      <v-toolbar-title>{{title}}</v-toolbar-title>
     </v-toolbar>
     <main>
       <v-container fluid>
@@ -44,7 +44,6 @@ import router from './router';
 export default {
   data() {
     return {
-      clipped: false,
       drawer: true,
       fixed: false,
       items: [{
@@ -56,10 +55,7 @@ export default {
         title: 'Data',
         icon: 'extension',
       }],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js',
+      title: 'WWM Client Portal',
       navClick(item) {
         router.push(item.route);
       },
