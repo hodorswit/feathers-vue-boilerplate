@@ -1,6 +1,9 @@
 <template>
   <div>
     <h3>{{header}}</h3>
+    <form @submit.prevent>
+      <v-text-field name="newMessage" label="Add Message" v-model="newMessage" v-on:keyup.enter.prevent="onNewMessage(newMessage)"></v-text-field>
+    </form>
     <v-card v-for="message in messages" v-bind:key="message._id">
       <v-card-title primary-title>
         <div>
@@ -24,12 +27,20 @@ export default {
     return {
       header: 'List of messages from /api/messages',
       messages: [],
+      newMessage: '',
+      load() {
+        messagesService.find().then((response) => {
+          this.messages = response.data;
+        });
+      },
+      onNewMessage(message) {
+        this.newMessage = '';
+        messagesService.create({ text: message }).then(() => this.load());
+      },
     };
   },
   created() {
-    messagesService.find({ text: 'More messages' }).then((response) => {
-      this.messages = response.data;
-    });
+    this.load();
   },
 };
 </script>
