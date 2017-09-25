@@ -1,23 +1,25 @@
 const seeder = require("feathers-seeder");
+const fs = require("fs");
+const path = require("path");
 
 module.exports = function() {
   const app = this;
+  const disabled = app.get("seederDisabled");
+  if (disabled) {
+    return;
+  }
+
+  // get all of the seeder configuration files
+  const imports = fs.readdirSync(__dirname).filter(file => file !== "index.js");
+
+  // import them
+  const seeders = imports.map(module => {
+    return require(`./${module}`);
+  });
 
   const options = {
     disabled: app.get("seederDisabled"),
-    services: [
-      {
-        path: "property",
-        count: 10,
-        template: {
-          address1: "{{address.streetAddress}}",
-          address2: "{{address.secondaryAddress}}",
-          city: "{{address.city}}",
-          state: "{{address.state}}",
-          zip: "{{address.zipCode}}"
-        }
-      }
-    ]
+    services: seeders
   };
 
   app.configure(seeder(options));

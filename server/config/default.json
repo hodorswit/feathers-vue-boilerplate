@@ -10,7 +10,7 @@
   "sqlite": {
     "client": "sqlite3",
     "connection": {
-      "filename": "api.sqlite"
+      "filename": "../data/api.sqlite"
     }
   },
   "disableSeeder": false
