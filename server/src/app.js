@@ -15,6 +15,8 @@ const middleware = require("./middleware");
 const services = require("./services");
 const appHooks = require("./app.hooks");
 
+const knex = require('./knex');
+
 const app = feathers();
 
 // Load app configuration
@@ -28,6 +30,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Set up Plugins and providers
 app.configure(hooks());
+app.configure(knex);
 app.configure(rest());
 
 // Configure other middleware (see `middleware/index.js`)
