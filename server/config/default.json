@@ -12,5 +12,6 @@
     "connection": {
       "filename": "api.sqlite"
     }
-  }
+  },
+  "disableSeeder": false
 }
