@@ -24,5 +24,6 @@ module.exports = function() {
 
   app.configure(seeder(options));
 
-  app.seed();
+  // call in seed-db.js
+  // app.seed();
 };

@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "cd client && npm install && cd .. && cd server && npm install",
+    "postinstall":
+      "cd client && npm install && cd .. && cd server && npm install",
     "dev:client": "cd client && npm run dev",
     "dev:server": "cd server && npm run start",
-    "dev": "npm run dev:server & npm run dev:client"
+    "dev": "npm run dev:server & npm run dev:client",
+    "db:seed": "cd server && npm run db:seed"
   },
   "author": "",
   "license": "ISC"

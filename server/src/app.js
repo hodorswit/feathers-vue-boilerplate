@@ -13,7 +13,6 @@ const notFound = require("feathers-errors/not-found");
 
 const middleware = require("./middleware");
 const services = require("./services");
-const seeders = require("./seeders");
 const appHooks = require("./app.hooks");
 
 const knex = require("./knex");
@@ -39,9 +38,6 @@ app.configure(middleware);
 
 // Set up our services (see `services/index.js`)
 app.configure(services);
-
-// Set up our seeders (disabled in production)
-app.configure(seeders);
 
 // Configure a middleware for 404s and the error handler
 app.use(notFound());

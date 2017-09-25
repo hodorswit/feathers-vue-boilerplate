@@ -4,9 +4,7 @@
   "version": "0.0.0",
   "homepage": "",
   "main": "src",
-  "keywords": [
-    "feathers"
-  ],
+  "keywords": ["feathers"],
   "author": {
     "name": "Robbie Hickey",
     "email": "robbie.d.hickey@gmail.com"
@@ -25,7 +23,8 @@
     "test": "npm run eslint && npm run mocha",
     "eslint": "eslint src/. test/. --config .eslintrc.json",
     "start": "nodemon src/",
-    "mocha": "mocha test/ --recursive"
+    "mocha": "mocha test/ --recursive",
+    "db:seed": "node db-seed"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
